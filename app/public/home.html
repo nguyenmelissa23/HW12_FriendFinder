@@ -7,7 +7,7 @@
     <!--Bootstrap link -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css">
 	<!--CSS File -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/style.css">-->
 	<!--jQuery link -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <title>FriendFinder Home</title>
@@ -24,16 +24,16 @@
                 <h2>Then find the friend with the greatest compatibility!</h2>
             </div>
             <br>
-            <a href="./survey.html"><button class="btn btn-primary">
+            <a href="/survey"><button class="btn btn-primary">
                 <span class="glyphicon glyphicon-list-alt"></span>Go to Survey
             </button></a>
         </div>
 
         <div>
-            <a href="#">API Friends List</a> | <a href="#">GitHub Repo</a>
+            <a id="apifriends" href="/api/friends">API Friends List</a> | <a href="#">GitHub Repo</a>
         </div>
     </div>
 
-    <script src="../routing/htmlRoutes.js"></script>
+    <script src="/logic.js"></script>   
 </body>
 </html>
