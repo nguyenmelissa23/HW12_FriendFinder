@@ -1,0 +1,16 @@
+img {
+    width: 300px;
+    float: right;
+}
+
+.modal-body{
+    overflow: auto;
+}
+
+.modal-footer{
+    width:100%;
+}
+
+.container{
+    max-width: 800px;
+}

@@ -5,14 +5,14 @@ const path = require("path");
 
 module.exports = function(app){
     app.get("/", function(req,res){
-        res.sendFile(path.join(__dirname, "../public/home.html"));
+        res.sendFile(path.join(__dirname, "/../public/home.html"));
     });
      
     app.get("/home", function(req,res){
         res.sendFile(path.join(__dirname, "/../public/home.html"));
     });
 
-    app.get("/survey", function(req,res){
+    app.get("/survey" || "survey.js", function(req,res){
         res.sendFile(path.join(__dirname, "/../public/survey.html"));
     });
 
@@ -20,9 +20,13 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, "/../../assets/javascript/logic.js"));
     });
 
-    app.get("/server.js", function(req,res){
-        res.sendFile(path.join(__dirname, "/../../server.js"));
+    app.get("/style.css", function(req,res){
+        res.sendFile(path.join(__dirname, "/../../assets/css/style.css"));
     });
+
+    // app.get("/server.js", function(req,res){
+    //     res.sendFile(path.join(__dirname, "/../../server.js"));
+    // });
 
     app.use(function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/home.html"));

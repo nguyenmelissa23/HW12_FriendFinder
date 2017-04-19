@@ -10,52 +10,54 @@
 // Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 // The modal should display both the name and picture of the closest match.
 
-
-const friendList = []
 let scores;
 let question = ["#q1","#q2","#q3","#q4","#q5","#q6","#q7","#q8","#q9","#q10"];
-
+let newPerson;
 
 $("input[name=submitForm]").on("click", function(){
+    newPerson={};
     scores =[];
     for (let i=0; i<question.length; i++){
         if (!parseInt($(question[i]).val().trim())){
             alert("Please answer all the questions before submitting!");
             break;
-        } else{
+        } else {
             scores.push($(question[i]).val().trim());
         } 
     }
     console.log(scores);
-    let newPerson ={}; newPerson = {
+    newPerson = {
         "name": $("input[name=name").val().trim(),
-        "image": $("input[name=image]").val().trim(),
+        "photo": $("input[name=image]").val().trim(),
         "scores": scores
     };
 
-    friendList.push(newPerson);
-    console.log(friendList);
-    if (scores.length === 10) alert("You answer has been recorded.");
+    if (scores.length === 10) console.log("You answer has been recorded.");
 
-    $.post("/api/friends", newPerson, function(data){
+    //save info and empty the input field
+    $.post("/survey", newPerson, function(data){
         if (data){
             console.log("Your record has been saved!");
+            // for (let i=0; i<question.length; i++){
+            //     $(question[i]).val("");
+            // }
+            // $("input[name=name").val("");
+            // $("input[name=image]").val("");
+
+            //Display Modal
+            // console.log(data);
+            $(".modal-body").text("");
+            $(".modal-body").append("<p>Friend Name: " + data.name + "</p>");
+            $(".modal-body").append("<img id='matchImg' src='" + data.photo + "'>");
         } else {
             console.log("Error");
         }
     });
-
-    $.get("api/friends/yourmatch", function(data){
-        console.log(data);
-        let html="";
-        html += "<p>Your match: <p>";
-        html +="";
-        $("#friendInfo").html(html);
-    });
+    
 });
 
 
-//All submissions:
+//API friends - All submissions:
 $("#apifriends").on("click", function(){
     $.get("/api/friends", function(data){
         $("body").text(data);
