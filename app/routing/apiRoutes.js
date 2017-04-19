@@ -85,7 +85,7 @@ module.exports = function(app){
             if (err) throw err;
             console.log("app.get() dislay - line 15");
             friendJson = JSON.parse(data);
-            //console.log(friendJson);
+            console.log("friendJson check differences",friendJson);
             yourMatch={"name":"no name", "photo": "no img", "diff":"none"};        
             for (let i=0; i < friendJson.length; i++){
                 if (!newPerson) {
@@ -115,8 +115,8 @@ module.exports = function(app){
                     }
                 }
                 console.log("your match:",yourMatch);
-                response.json(yourMatch);
             }
+            return response.json(yourMatch);
         });
     }); //closs app.post
 
