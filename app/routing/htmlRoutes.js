@@ -24,6 +24,10 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, "/../../assets/css/style.css"));
     });
 
+    app.get("/fbicon.jpg", function(req,res){
+        res.sendFile(path.join(__dirname, "/../../assets/images/fbicon.jpg"));
+    });
+
     // app.get("/server.js", function(req,res){
     //     res.sendFile(path.join(__dirname, "/../../server.js"));
     // });

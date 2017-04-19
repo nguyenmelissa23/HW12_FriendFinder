@@ -3,7 +3,7 @@ img {
     float: right;
 }
 
-.modal-body{
+.modal-body, button{
     overflow: auto;
 }
 
@@ -12,5 +12,10 @@ img {
 }
 
 .container{
-    max-width: 800px;
+    max-width: 1000px;
+}
+
+#icon {
+    width: 80px;
+    float:left;
 }
